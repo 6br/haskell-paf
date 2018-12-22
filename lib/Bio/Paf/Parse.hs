@@ -38,7 +38,7 @@ alnParser = do
                    qendP   <* tabP <*>
                    strandP <* tabP <*>
                    tnameP  <* tabP <*>
-                   tlenP <* tabP <*>
+                   tlenP   <* tabP <*>
                    tstartP <* tabP <*>
                    tendP   <* tabP <*>
                    rmatchP <* tabP <*>

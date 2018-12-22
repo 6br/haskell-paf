@@ -16,16 +16,16 @@ import qualified Bio.Sam.RawSam as S
 import GHC.Generics
 
 data AlnOptValue =
-  AlnOptChar        Char              |
-  AlnOptInt8        Int8              | -- only for BAM
-  AlnOptUInt8       Word8             | -- only for BAM
-  AlnOptInt16       Int16             | -- only for BAM
-  AlnOptUInt16      Word16            | -- only for BAM
-  AlnOptInt32       Int32             |
-  AlnOptUInt32      Word32            | -- only for BAM
-  AlnOptFloat       Float             |
-  AlnOptString      ByteString        |
-  AlnOptByteArray   ByteString        |
+  AlnOptChar        Char               |
+  AlnOptInt8        Int8               | -- only for BAM
+  AlnOptUInt8       Word8              | -- only for BAM
+  AlnOptInt16       Int16              | -- only for BAM
+  AlnOptUInt16      Word16             | -- only for BAM
+  AlnOptInt32       Int32              |
+  AlnOptUInt32      Word32             | -- only for BAM
+  AlnOptFloat       Float              |
+  AlnOptString      ByteString         |
+  AlnOptByteArray   ByteString         |
   AlnOptInt8Array   (UV.Vector Int8)   |
   AlnOptUInt8Array  (UV.Vector Word8)  |
   AlnOptInt16Array  (UV.Vector Int16)  |
@@ -34,13 +34,6 @@ data AlnOptValue =
   AlnOptUInt32Array (UV.Vector Word32) |
   AlnOptFloatArray  (UV.Vector Float)
   deriving (Generic, Show)
-
---data AlnOpt = AlnOpt {
---  _alnOptTag   :: !T.Text,
---  _alnOptValue :: !AlnOptValue
---  } deriving (Generic, Show)
-
---makeLenses ''AlnOpt
 
 data Aln = Aln {
   _qname  :: !T.Text,
