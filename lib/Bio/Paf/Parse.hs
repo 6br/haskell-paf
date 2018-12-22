@@ -59,6 +59,8 @@ findOptCigars :: [R.AlnOpt] -> ([R.AlnOpt], Maybe (UV.Vector CIG.Cigar))
 findOptCigars [] = ([], Nothing)
 findOptCigars (R.AlnOpt "cg" (R.AlnOptString cigars):xs) = (xs, join $ maybeResult $ feed (parse cigarsP cigars) "" )
 findOptCigars (R.AlnOpt "cg" _:_) = error "\"CG\" tag should have String as its value"
+findOptCigars (R.AlnOpt "CG" (R.AlnOptString cigars):xs) = (xs, join $ maybeResult $ feed (parse cigarsP cigars) "" )
+findOptCigars (R.AlnOpt "CG" _:_) = error "\"CG\" tag should have String as its value"
 findOptCigars (x:xs) = (x:xs', cs) where (xs', cs) = findOptCigars xs
 
 qnameP :: Parser T.Text
