@@ -23,11 +23,11 @@ readPafFile = readFileByParser pafParser
 readStdinByParser :: Parser a -> IO a
 readStdinByParser parser = runConduitRes $ stdinC .| sinkParser parser
 
-readPafStdin :: IO S.Paf
+readPafStdin :: IO P.Paf
 readPafStdin = readStdinByParser pafParser
 
---writePafFile :: FilePath -> S.Paf  -> IO ()
+--writePafFile :: FilePath -> P.Paf  -> IO ()
 --writePafFile path paf = runConduitRes $ yield (exportPaf paf) .| encodeUtf8C .| sinkFileBS path
 
---writePafStdout :: S.Paf -> IO ()
+--writePafStdout :: P.Paf -> IO ()
 --writePafStdout paf = runConduitRes $ yield (exportPaf paf) .| encodeUtf8C .| stdoutC

@@ -9,11 +9,10 @@ import Data.ByteString.Char8
 import Data.Int
 import Data.Word
 import Control.Lens
---import Data.Default
-import Data.Sequence
 import qualified Data.Text as T
 import qualified Data.Vector as V
 import qualified Data.Vector.Unboxed as UV
+import qualified Bio.Sam.RawSam as S
 import GHC.Generics
 
 data AlnOptValue =
@@ -36,12 +35,12 @@ data AlnOptValue =
   AlnOptFloatArray  (UV.Vector Float)
   deriving (Generic, Show)
 
-data AlnOpt = AlnOpt {
-  _alnOptTag   :: !T.Text,
-  _alnOptValue :: !AlnOptValue
-  } deriving (Generic, Show)
+--data AlnOpt = AlnOpt {
+--  _alnOptTag   :: !T.Text,
+--  _alnOptValue :: !AlnOptValue
+--  } deriving (Generic, Show)
 
-makeLenses ''AlnOpt
+--makeLenses ''AlnOpt
 
 data Aln = Aln {
   _qname  :: !T.Text,
@@ -54,8 +53,10 @@ data Aln = Aln {
   _tstart :: !Int32,
   _tend   :: !Int32,
   _rmatch :: !Int32,
-  _mapq   :: !Int32,
-  _opt    :: !(V.Vector AlnOpt)
+  _ablock :: !Int32,
+  _mapq   :: !Int8,
+  _opt    :: !(V.Vector S.AlnOpt),
+  _cigars :: !(Maybe (UV.Vector CIG.Cigar))
   } deriving (Generic, Show)
 
 makeLenses ''Aln

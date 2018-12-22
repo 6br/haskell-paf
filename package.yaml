@@ -1,4 +1,4 @@
-name:                haskell-paf
+name:                paf
 version:             0.1.0.0
 github:              "githubuser/haskell-paf"
 license:             BSD3
@@ -23,7 +23,6 @@ dependencies:
   - attoparsec
   - attoparsec-applicative
   - base >= 4.7 && < 5
-  - bioseq
   - bytestring
   - base16-bytestring
   - conduit
@@ -44,7 +43,7 @@ library:
   source-dirs: lib
 
 tests:
-  haskell-paf-test:
+  paf-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -52,4 +51,4 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - haskell-paf
+    - paf
